@@ -1,12 +1,8 @@
-// const container = document.querySelector('.detail-container')
-
 const btns = document.querySelectorAll('.btns');
 
 
-// btns.addEventListener('click', ()=>{
-//     container.style.display='block'
-//     container.style.color = "red"
-// })
+
+
 
 btns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
@@ -28,5 +24,13 @@ btns.forEach((btn, idx) => {
     });
 });
 
+// Splash screen hide after 3 seconds
+window.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 3000);
+    }
+});
 
-console.log('hello')
