@@ -34,3 +34,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.getElementById("uploadForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = document.getElementById("fileInput");
+    const file = input.files[0];
+    if (file && file.size > 5 * 1024 * 1024) {
+        alert("File too large! Maximum size is 5MB.");
+        return;
+    }
+    // For demonstration, just show the image preview
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        document.getElementById("preview").innerHTML = `<img src="${event.target.result}" alt="Preview">`;
+    };
+    reader.readAsDataURL(file);
+
+    // For actual upload:
+    // You'd send 'file' to your server via AJAX/fetch here
+    // e.g., using fetch or XMLHttpRequest
+});
+
